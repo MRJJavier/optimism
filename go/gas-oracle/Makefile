@@ -1,5 +1,5 @@
 gas-oracle:
-	go build
+	env GO111MODULE=on go build
 
 test:
 	go test -v ./...
