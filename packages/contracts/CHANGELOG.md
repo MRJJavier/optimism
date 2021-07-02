@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.2
+
+### Patch Changes
+
+- 0313794b: Add a factory contract we can whitelist for the community phase which will be used by the Gateway to create standard ERC20 tokens on L2
+- 21e47e1f: A small change to the L1 Messenger, which prevents an L2 to L1 call from send calling the CTC.
+
 ## 0.4.1
 
 ### Patch Changes
