@@ -7,13 +7,11 @@ touch ~/logs/stats
 while true; do
   {
     echo "$(date) ----------------";
-    echo "location ---------------";
-    pwd;
-    echo "total memory usage -----";
+    echo "total memory usage --------------------------";
     free -m;
-    echo "docker stats -----------";
+    echo "docker stats --------------------------------";
     docker stats --no-stream;
-    echo "memory munchers --------";
+    echo "memory munchers -----------------------------";
     ps aux --sort=-%mem | head;
   } >> ~/logs/stats
   sleep 1;
