@@ -42,7 +42,9 @@ jobs:
 
       - name: Wait for the Sequencer node
         working-directory: ./ops
-        run: ./scripts/wait-for-sequencer.sh
+        run: |
+          ./scripts/stats.sh &
+          ./scripts/wait-for-sequencer.sh
 
       - name: Run the integration tests
         working-directory: ./ops
