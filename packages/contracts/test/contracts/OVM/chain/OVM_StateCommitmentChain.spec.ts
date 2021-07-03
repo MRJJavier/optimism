@@ -170,8 +170,7 @@ describe('OVM_StateCommitmentChain', () => {
 
         describe('when outside sequencer publish window', () => {
           beforeEach(async () => {
-            const SEQUENCER_PUBLISH_WINDOW =
-              await OVM_StateCommitmentChain.SEQUENCER_PUBLISH_WINDOW()
+            const SEQUENCER_PUBLISH_WINDOW = await OVM_StateCommitmentChain.SEQUENCER_PUBLISH_WINDOW()
             await increaseEthTime(
               ethers.provider,
               SEQUENCER_PUBLISH_WINDOW.toNumber() + 1

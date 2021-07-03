@@ -12,7 +12,7 @@ import {
 import { Logger, Metrics } from '@eth-optimism/common-ts'
 
 /* Internal Imports */
-import { BlockRange, BatchSubmitter } from '.'
+import { Range, BatchSubmitter } from '.'
 
 export class StateBatchSubmitter extends BatchSubmitter {
   // TODO: Change this so that we calculate start = scc.totalElements() and end = ctc.totalElements()!
@@ -116,7 +116,7 @@ export class StateBatchSubmitter extends BatchSubmitter {
     return
   }
 
-  public async _getBatchStartAndEnd(): Promise<BlockRange> {
+  public async _getBatchStartAndEnd(): Promise<Range> {
     this.logger.info('Getting batch start and end for state batch submitter...')
     const startBlock: number =
       (await this.chainContract.getTotalElements()).toNumber() +

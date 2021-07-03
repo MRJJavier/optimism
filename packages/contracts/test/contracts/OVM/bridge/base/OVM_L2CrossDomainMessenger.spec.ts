@@ -71,8 +71,9 @@ describe('OVM_L2CrossDomainMessenger', () => {
 
   let OVM_L2CrossDomainMessenger: Contract
   beforeEach(async () => {
-    OVM_L2CrossDomainMessenger =
-      await Factory__OVM_L2CrossDomainMessenger.deploy(AddressManager.address)
+    OVM_L2CrossDomainMessenger = await Factory__OVM_L2CrossDomainMessenger.deploy(
+      AddressManager.address
+    )
   })
 
   describe('sendMessage', () => {
@@ -182,9 +183,7 @@ describe('OVM_L2CrossDomainMessenger', () => {
       // There should be no 'relayedMessage' event logged in the receipt.
       const logs = (
         await Mock__OVM_L2ToL1MessagePasser.provider.getTransactionReceipt(
-          (
-            await resProm
-          ).hash
+          (await resProm).hash
         )
       ).logs
       expect(logs).to.deep.equal([])
@@ -205,11 +204,10 @@ describe('OVM_L2CrossDomainMessenger', () => {
         Mock__OVM_L1CrossDomainMessenger.address
       )
 
-      const reentrantMessage =
-        OVM_L2CrossDomainMessenger.interface.encodeFunctionData(
-          'relayMessage',
-          [target, sender, message, 1]
-        )
+      const reentrantMessage = OVM_L2CrossDomainMessenger.interface.encodeFunctionData(
+        'relayMessage',
+        [target, sender, message, 1]
+      )
 
       // Calculate xDomainCallData used for indexing
       // (within the first call to the L2 Messenger).
